@@ -1,9 +1,9 @@
 import React from 'react'
 import './App.css'
-import FeedPage from './components/FeedPage'
+import ArtistPage from './components/ArtistPage'
 
 function App() {
-  return <FeedPage />
+  return <ArtistPage />
 }
 
 export default App

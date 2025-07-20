@@ -3010,6 +3010,942 @@ html:has(.desktop-feed-page) {
   transform: translateY(-1px);
 }
 
+/* ===================== ARTIST PAGE STYLES ===================== */
+
+/* Desktop Artist Page */
+.desktop-artist-page {
+  min-height: 100vh;
+  background: #ffffff;
+  position: relative;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+/* Ana İçerik */
+.artist-main-content {
+  margin-right: 20px; /* Chat floating olduğu için minimal margin */
+  padding: 30px;
+}
+
+/* A) Sanatçı Header */
+.artist-header {
+  background: #f4f4f4;
+  border-radius: 16px;
+  padding: 16px;
+  margin: 0 auto 16px auto;
+  max-width: 1060px;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(39, 44, 48, 0.1);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.artist-info {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  flex: 1;
+  min-width: 0;
+}
+
+.artist-image-container {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.artist-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 14px;
+  object-fit: cover;
+  border: 2px solid #FEB822;
+  box-shadow: 0 6px 15px rgba(254, 184, 34, 0.3);
+}
+
+.total-respect-badge {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #FEB822;
+  color: #272c30;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(254, 184, 34, 0.4);
+}
+
+.artist-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.artist-name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #272c30;
+  margin: 0 0 6px 0;
+  line-height: 1.2;
+}
+
+.artist-stats {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  font-size: 13px;
+  color: #755a3d;
+  background: rgba(254, 184, 34, 0.1);
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.artist-bio {
+  margin-bottom: 16px;
+}
+
+.bio-text {
+  font-size: 14px;
+  color: #272c30;
+  line-height: 1.4;
+  margin: 0 0 12px 0;
+}
+
+.artist-message {
+  background: rgba(254, 184, 34, 0.1);
+  padding: 12px;
+  border-radius: 10px;
+  border-left: 3px solid #FEB822;
+}
+
+.artist-message h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #272c30;
+  margin: 0 0 4px 0;
+}
+
+.artist-message p {
+  font-size: 13px;
+  color: #755a3d;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.quick-respect-btn {
+  background: #FEB822;
+  color: #272c30;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 18px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 12px rgba(254, 184, 34, 0.3);
+}
+
+.quick-respect-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(254, 184, 34, 0.5);
+}
+
+/* Header Top Respecters */
+.header-top-respecters {
+  flex: 0 0 200px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 12px;
+  border: 2px solid rgba(254, 184, 34, 0.3);
+  box-shadow: 0 4px 15px rgba(39, 44, 48, 0.1);
+}
+
+.header-respecters-title {
+  text-align: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(254, 184, 34, 0.2);
+}
+
+.header-respecters-title h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #272c30;
+  margin: 0 0 2px 0;
+}
+
+.respecters-count {
+  font-size: 11px;
+  color: #755a3d;
+  background: rgba(254, 184, 34, 0.1);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.header-respecters-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.header-respecter-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  background: #f4f4f4;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.header-respecter-item:hover {
+  background: rgba(254, 184, 34, 0.1);
+  transform: translateY(-1px);
+}
+
+.header-rank-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 30px;
+  flex-shrink: 0;
+}
+
+.header-rank-number {
+  font-size: 14px;
+  font-weight: 700;
+  color: #272c30;
+}
+
+.header-rank-change {
+  font-size: 12px;
+}
+
+.header-respecter-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid rgba(254, 184, 34, 0.4);
+  flex-shrink: 0;
+}
+
+.header-respecter-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.header-respecter-username {
+  font-size: 12px;
+  font-weight: 600;
+  color: #272c30;
+  margin: 0 0 2px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-respecter-total {
+  font-size: 11px;
+  color: #755a3d;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Recent Supporters Horizontal */
+.recent-supporters-horizontal {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  margin: 0 auto 20px auto;
+  max-width: 1060px;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(39, 44, 48, 0.1);
+  border: 2px solid rgba(254, 184, 34, 0.3);
+  position: relative;
+}
+
+.recent-supporters-horizontal::after {
+  content: "← → Swipe to see more";
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 11px;
+  color: #999;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(254, 184, 34, 0.2);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.recent-supporters-header {
+  text-align: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid rgba(254, 184, 34, 0.2);
+}
+
+.recent-supporters-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #272c30;
+  margin: 0 0 4px 0;
+}
+
+.supporters-count {
+  font-size: 13px;
+  color: #755a3d;
+  background: rgba(254, 184, 34, 0.1);
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.recent-supporters-grid {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 8px;
+}
+
+.recent-supporters-grid::-webkit-scrollbar {
+  height: 6px;
+}
+
+.recent-supporters-grid::-webkit-scrollbar-track {
+  background: rgba(254, 184, 34, 0.1);
+  border-radius: 3px;
+}
+
+.recent-supporters-grid::-webkit-scrollbar-thumb {
+  background: rgba(254, 184, 34, 0.6);
+  border-radius: 3px;
+}
+
+.recent-supporters-grid::-webkit-scrollbar-thumb:hover {
+  background: rgba(254, 184, 34, 0.8);
+}
+
+.recent-supporter-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #f4f4f4;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(254, 184, 34, 0.2);
+  min-width: 180px;
+  flex-shrink: 0;
+}
+
+.recent-supporter-card:hover {
+  background: rgba(254, 184, 34, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(39, 44, 48, 0.1);
+  border-color: rgba(254, 184, 34, 0.4);
+}
+
+.recent-supporter-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid rgba(254, 184, 34, 0.4);
+  flex-shrink: 0;
+}
+
+.recent-supporter-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.recent-supporter-username {
+  font-size: 14px;
+  font-weight: 700;
+  color: #272c30;
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recent-supporter-amount {
+  font-size: 13px;
+  color: #755a3d;
+  margin: 0 0 2px 0;
+  font-weight: 600;
+}
+
+.recent-supporter-time {
+  font-size: 11px;
+  color: #999;
+  font-weight: 500;
+}
+
+/* Ana Grid Layout */
+.artist-content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.left-column,
+.center-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Rank Class Styles - Still needed for header respecters */
+.rank-up { color: #22c55e; }
+.rank-down { color: #ef4444; }
+.rank-same { color: #6b7280; }
+
+
+
+/* E) Diskografi */
+.discography {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 6px 20px rgba(39, 44, 48, 0.1);
+}
+
+.disco-section {
+  margin-bottom: 20px;
+}
+
+.disco-section:last-child {
+  margin-bottom: 0;
+}
+
+.songs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.song-card {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  background: #f4f4f4;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  align-items: flex-start;
+}
+
+.song-card:hover {
+  transform: translateY(-3px);
+  background: rgba(254, 184, 34, 0.1);
+  box-shadow: 0 8px 20px rgba(39, 44, 48, 0.1);
+}
+
+.song-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid rgba(254, 184, 34, 0.4);
+  flex-shrink: 0;
+}
+
+.song-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.song-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #272c30;
+  margin: 0 0 6px 0;
+}
+
+.song-meta {
+  font-size: 14px;
+  color: #755a3d;
+  margin: 0 0 6px 0;
+}
+
+.song-respects {
+  font-size: 16px;
+  color: #FEB822;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* D) Fixed Chat */
+.artist-chat-fixed {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  width: 400px;
+  height: 600px;
+  background: #ffffff;
+  border: 2px solid #FEB822;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  z-index: 50;
+  box-shadow: 0 8px 32px rgba(39, 44, 48, 0.15);
+}
+
+.artist-chat-fixed .chat-header {
+  background: #FEB822;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(254, 184, 34, 0.3);
+  border-radius: 14px 14px 0 0;
+}
+
+.artist-chat-fixed .chat-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #272c30;
+  margin: 0;
+}
+
+.chat-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.artist-chat-fixed .online-count {
+  font-size: 14px;
+  color: #272c30;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.artist-chat-fixed .chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(254, 184, 34, 0.3) transparent;
+}
+
+.artist-chat-fixed .chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.artist-chat-fixed .chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.artist-chat-fixed .chat-messages::-webkit-scrollbar-thumb {
+  background: rgba(254, 184, 34, 0.3);
+  border-radius: 3px;
+}
+
+.chat-message {
+  display: flex;
+  flex-direction: column;
+  max-width: 85%;
+  animation: messageSlideIn 0.3s ease-out;
+}
+
+.user-message {
+  align-self: flex-start;
+}
+
+.artist-message {
+  align-self: flex-end;
+}
+
+.artist-message .message-content {
+  background: rgba(254, 184, 34, 0.2);
+  border: 1px solid rgba(254, 184, 34, 0.4);
+}
+
+.user-message .message-content {
+  background: #f4f4f4;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.priority-message .message-content {
+  border: 2px solid #FEB822;
+  background: rgba(254, 184, 34, 0.1);
+}
+
+.message-content {
+  padding: 12px 16px;
+  border-radius: 16px;
+  margin-bottom: 4px;
+}
+
+.message-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.message-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.message-username {
+  font-size: 14px;
+  font-weight: 600;
+  color: #272c30;
+}
+
+.priority-badge {
+  font-size: 12px;
+}
+
+.message-text {
+  font-size: 15px;
+  color: #272c30;
+  margin: 0 0 6px 0;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.message-time {
+  font-size: 11px;
+  color: #755a3d;
+  opacity: 0.7;
+}
+
+.chat-requirement-notice {
+  padding: 12px 16px;
+  background: rgba(254, 184, 34, 0.1);
+  border-top: 2px solid rgba(254, 184, 34, 0.3);
+  border-bottom: 2px solid rgba(254, 184, 34, 0.3);
+}
+
+.chat-requirement-notice p {
+  font-size: 13px;
+  color: #755a3d;
+  margin: 0;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.artist-chat-fixed .chat-input-area {
+  padding: 16px;
+  background: #f4f4f4;
+  border-top: 1px solid rgba(254, 184, 34, 0.3);
+  border-radius: 0 0 14px 14px;
+  display: flex;
+  gap: 12px;
+}
+
+.artist-chat-fixed .chat-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 1px solid rgba(254, 184, 34, 0.3);
+  border-radius: 20px;
+  background: #ffffff;
+  color: #272c30;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.artist-chat-fixed .chat-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.artist-chat-fixed .send-button {
+  padding: 12px 20px;
+  background: #FEB822;
+  color: #272c30;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.artist-chat-fixed .send-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Section Headers */
+.artist-page .section-header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 16px;
+  background: #f4f4f4;
+  border-radius: 12px;
+}
+
+.artist-page .section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #272c30;
+  margin: 0 0 6px 0;
+}
+
+.artist-page .section-subtitle {
+  font-size: 14px;
+  color: #755a3d;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ===================== ARTIST PAGE RESPONSIVE ===================== */
+
+@media (max-width: 1200px) {
+  .artist-main-content {
+    margin-right: 20px;
+    padding: 20px;
+  }
+  
+  .artist-header {
+    max-width: 960px;
+  }
+  
+  .artist-chat-fixed {
+    width: 350px;
+    height: 550px;
+    top: 50px;
+    right: 15px;
+  }
+  
+  .artist-content-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .recent-supporters-horizontal {
+    max-width: 960px;
+  }
+  
+  .recent-supporter-card {
+    min-width: 160px;
+  }
+}
+
+@media (max-width: 992px) {
+  .artist-main-content {
+    margin-right: 0;
+    padding: 20px;
+  }
+  
+  .artist-header {
+    max-width: 100%;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .header-top-respecters {
+    flex: none;
+    width: 100%;
+  }
+  
+  .recent-supporters-horizontal {
+    max-width: 100%;
+  }
+  
+  .recent-supporter-card {
+    min-width: 140px;
+  }
+  
+  .artist-chat-fixed {
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    border: 2px solid #FEB822;
+    border-radius: 16px;
+    margin: 40px auto 0 auto;
+    top: 0;
+    right: 0;
+    box-shadow: 0 6px 20px rgba(39, 44, 48, 0.1);
+  }
+  
+  .artist-content-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .artist-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .songs-grid {
+    grid-template-columns: 1fr;
+  }
+  
+
+}
+
+@media (max-width: 768px) {
+  .artist-main-content {
+    padding: 16px;
+  }
+  
+  .artist-header {
+    padding: 16px 14px;
+    max-width: 100%;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  .header-top-respecters {
+    flex: none;
+    width: 100%;
+  }
+  
+  .recent-supporters-horizontal {
+    padding: 14px;
+    margin: 0 auto 16px auto;
+  }
+  
+  .recent-supporters-horizontal::after {
+    font-size: 10px;
+    top: 14px;
+    right: 16px;
+    padding: 3px 6px;
+  }
+  
+  .recent-supporters-grid {
+    gap: 12px;
+  }
+  
+  .recent-supporter-card {
+    min-width: 120px;
+  }
+  
+  .header-respecters-list {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .header-respecter-item {
+    flex: 1;
+    min-width: 0;
+    flex-direction: column;
+    text-align: center;
+    gap: 4px;
+  }
+  
+
+  
+  .artist-name {
+    font-size: 20px;
+  }
+  
+  .artist-stats {
+    justify-content: center;
+  }
+  
+  .discography {
+    padding: 20px;
+  }
+  
+
+  
+  .song-image {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .artist-chat-fixed .chat-messages {
+    padding: 16px;
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .artist-image {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .artist-name {
+    font-size: 18px;
+  }
+  
+  .artist-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .quick-respect-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  
+  .header-respecters-list {
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .header-respecter-item {
+    flex-direction: row;
+    text-align: left;
+    gap: 6px;
+  }
+  
+  .recent-supporters-horizontal {
+    padding: 12px;
+  }
+  
+  .recent-supporters-horizontal::after {
+    content: "→";
+    font-size: 12px;
+    top: 12px;
+    right: 16px;
+    padding: 2px 4px;
+  }
+  
+  .recent-supporters-grid {
+    gap: 10px;
+  }
+  
+  .recent-supporter-card {
+    padding: 10px;
+    min-width: 150px;
+  }
+  
+  .recent-supporter-avatar {
+    width: 40px;
+    height: 40px;
+  }
+  
+
+  
+  .song-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
 /* Respect Cards Özel Stili */
 .respect-section .desktop-feed-card {
   background: #ffffff;

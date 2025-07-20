@@ -41,8 +41,8 @@ const LoginPage = () => {
             </div>
             <h1 className="hero-title">Respect Müzik</h1>
             <p className="hero-subtitle">
-              Sanatçılarını destekle, müziğe respect gönder
-            </p>
+            Sanatçılarını destekle, müziğe respect gönder
+          </p>
             <div className="hero-features">
               <div className="feature-item">
                 <span>Sevdiğin müzikleri keşfet</span>
@@ -77,50 +77,50 @@ const LoginPage = () => {
                 <img src="/src/assets/spotify.jpg" alt="Spotify" className="spotify-icon-desktop" />
                 <span>Spotify ile Devam Et</span>
               </div>
-            </button>
+        </button>
 
             <div className="divider-desktop">
               <span className="divider-text-desktop">veya email ile giriş yap</span>
-            </div>
+        </div>
 
             <form className="login-form-desktop" onSubmit={handleLogin}>
               <div className="input-group-desktop">
                 <label htmlFor="email" className="input-label-desktop">Email Adresin</label>
-                <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
                   placeholder="ornek@email.com"
                   className="login-input-desktop"
-                  required
-                />
-              </div>
+              required
+            />
+          </div>
 
               <div className="input-group-desktop">
                 <label htmlFor="password" className="input-label-desktop">Şifren</label>
-                <input
-                  type="password"
-                  id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   className="login-input-desktop"
-                  required
-                />
-              </div>
+              required
+            />
+          </div>
 
               <button type="submit" className="login-button-desktop">
                 <span>Giriş Yap</span>
                 <div className="button-arrow">→</div>
-              </button>
-            </form>
+          </button>
+        </form>
 
             <div className="login-footer-desktop">
               <a href="#forgot" className="forgot-link-desktop">
-                Şifremi Unuttum
-              </a>
-              
+            Şifremi Unuttum
+          </a>
+          
               <div className="signup-section-desktop">
                 <span className="signup-text-desktop">Henüz hesabın yok mu?</span>
                 <a href="#signup" className="signup-link-desktop">Hemen Kayıt Ol</a>

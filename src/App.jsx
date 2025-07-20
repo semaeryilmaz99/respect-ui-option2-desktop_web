@@ -1,9 +1,9 @@
 import React from 'react'
 import './App.css'
-import LoginPage from './components/LoginPage'
+import FeedPage from './components/FeedPage'
 
 function App() {
-  return <LoginPage />
+  return <FeedPage />
 }
 
 export default App

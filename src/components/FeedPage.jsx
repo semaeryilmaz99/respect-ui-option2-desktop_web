@@ -149,6 +149,22 @@ const FeedPage = () => {
     }
   ]
 
+  // Yeni şarkı verisi
+  const newSongData = {
+    id: 'new-song-1',
+    type: 'new-release',
+    artist: 'Gaye Su Akyol',
+    title: 'Yeni Single: "Büyü"',
+    description: 'Alternatif rock sahnesinin en özgün seslerinden Gaye Su Akyol\'un yeni single\'ı "Büyü" yayında!',
+    image: '/src/assets/song/Image (13).png',
+    time: '2 saat önce',
+    stats: {
+      listens: '12.5K',
+      respects: '89',
+      shares: '23'
+    }
+  }
+
   const ChatMessage = ({ message }) => (
     <div className="chat-message">
       <div className="message-avatar">
@@ -241,6 +257,30 @@ const FeedPage = () => {
                 .map(item => (
                   <FeedCard key={item.id} item={item} />
                 ))}
+            </div>
+            
+            {/* Yeni Şarkı Kartı */}
+            <div className="new-song-card">
+              <div className="new-song-header">
+                <h3 className="new-song-title">Yeni Şarkı</h3>
+              </div>
+              <div className="new-song-content">
+                <img src={newSongData.image} alt={newSongData.title} className="new-song-image" />
+                <div className="new-song-info">
+                  <h4 className="new-song-artist">{newSongData.artist}</h4>
+                  <p className="new-song-track">{newSongData.title}</p>
+                  <p className="new-song-description">{newSongData.description}</p>
+                  <div className="new-song-stats">
+                    <span className="stat-item">🎧 {newSongData.stats.listens}</span>
+                    <span className="stat-item">💛 {newSongData.stats.respects}</span>
+                    <span className="stat-item">📤 {newSongData.stats.shares}</span>
+                  </div>
+                  <div className="new-song-actions">
+                    <button className="play-button">Dinle</button>
+                    <button className="respect-button">Respect</button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

@@ -1,9 +1,9 @@
 import React from 'react'
 import './App.css'
-import OnboardingPage from './components/OnboardingPage'
+import UserPage from './components/UserPage'
 
 function App() {
-  return <OnboardingPage />
+  return <UserPage />
 }
 
 export default App

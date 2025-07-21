@@ -2389,72 +2389,175 @@ html {
   }
 }
 
-/* Send Respect Page Styles */
+/* ===================== NEW RESPECT PAGE DESIGN ===================== */
+
 .send-respect-page {
   min-height: 100vh;
-  background-color: #ffffff;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* Respect Header */
+/* Header with Modern Close Button */
 .respect-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 20px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #f0f0f0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 2px solid rgba(254, 184, 34, 0.2);
   position: relative;
+  z-index: 2;
 }
 
 .close-button {
   position: absolute;
   left: 20px;
-  background: none;
-  border: none;
-  font-size: 18px;
-  color: #1b262e;
+  background: rgba(254, 184, 34, 0.1);
+  border: 2px solid rgba(254, 184, 34, 0.3);
+  font-size: 20px;
+  color: #272c30;
   cursor: pointer;
-  padding: 8px;
+  padding: 12px;
   border-radius: 50%;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s ease;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .close-button:hover {
-  background-color: #f5f5f5;
+  background: rgba(254, 184, 34, 0.2);
+  border-color: rgba(254, 184, 34, 0.5);
+  transform: scale(1.1);
 }
 
 .respect-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: #1b262e;
+  font-size: 24px;
+  font-weight: 700;
+  color: #272c30;
   margin: 0;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
 }
 
-/* Respect Content */
+/* Main Content with Enhanced Layout */
 .respect-content {
   flex: 1;
-  padding: 24px 20px;
+  padding: 30px 20px;
   display: flex;
-  flex-direction: column;
-  gap: 32px;
+  flex-direction: row;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  align-items: flex-start;
 }
 
-/* Song Info Section */
+.respect-left-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.respect-right-column {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+/* Artist Thank You Message */
+.artist-message {
+  background: linear-gradient(135deg, rgba(254, 184, 34, 0.15) 0%, rgba(254, 184, 34, 0.05) 100%);
+  border: 2px solid rgba(254, 184, 34, 0.3);
+  border-radius: 20px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.artist-message::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(254, 184, 34, 0.1), transparent);
+  animation: thankYouShine 3s ease-in-out infinite;
+}
+
+@keyframes thankYouShine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.artist-message h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #272c30;
+  margin: 0 0 8px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.artist-message p {
+  font-size: 15px;
+  color: #755a3d;
+  margin: 0;
+  line-height: 1.4;
+  position: relative;
+  z-index: 2;
+}
+
+/* Enhanced Song Info Section */
 .song-info-section {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid rgba(254, 184, 34, 0.2);
+  box-shadow: 0 8px 25px rgba(254, 184, 34, 0.1);
 }
 
 .song-cover {
-  width: 80px;
-  height: 80px;
-  border-radius: 12px;
+  width: 90px;
+  height: 90px;
+  border-radius: 16px;
   overflow: hidden;
   flex-shrink: 0;
-  background-color: #f5f5f5;
+  border: 3px solid rgba(254, 184, 34, 0.4);
+  position: relative;
+}
+
+.song-cover::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, #FEB822 0%, #f5980d 100%);
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: respectIndicator 2s infinite;
+}
+
+@keyframes respectIndicator {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
 }
 
 .song-cover img {
@@ -2464,156 +2567,453 @@ html {
 }
 
 .song-name {
-  font-size: 20px;
-  font-weight: 600;
-  color: #1b262e;
-  margin: 0 0 4px 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #272c30;
+  margin: 0 0 6px 0;
 }
 
 .artist-name {
+  font-size: 16px;
+  color: #755a3d;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Quick Respect Section */
+.quick-respect-section {
+  background: linear-gradient(135deg, #FEB822 0%, #f5980d 100%);
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 8px 32px rgba(254, 184, 34, 0.4),
+    0 0 40px rgba(254, 184, 34, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  animation: quickRespectGlow 3s ease-in-out infinite;
+}
+
+@keyframes quickRespectGlow {
+  0%, 100% { 
+    box-shadow: 
+      0 8px 32px rgba(254, 184, 34, 0.4),
+      0 0 40px rgba(254, 184, 34, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  50% { 
+    box-shadow: 
+      0 12px 48px rgba(254, 184, 34, 0.6),
+      0 0 60px rgba(254, 184, 34, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+}
+
+.quick-respect-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: quickRespectShine 4s ease-in-out infinite;
+}
+
+.quick-respect-section::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: quickRespectSparkle 6s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+@keyframes quickRespectShine {
+  0% { left: -100%; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+@keyframes quickRespectSparkle {
+  0%, 100% { 
+    transform: rotate(0deg) scale(1);
+    opacity: 0.3;
+  }
+  25% { 
+    transform: rotate(90deg) scale(1.1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: rotate(180deg) scale(1.2);
+    opacity: 0.6;
+  }
+  75% { 
+    transform: rotate(270deg) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.quick-respect-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #272c30;
+  margin: 0 0 10px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.quick-respect-subtitle {
   font-size: 14px;
-  color: #666;
+  color: rgba(39, 44, 48, 0.8);
+  margin: 0 0 20px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.quick-respect-button {
+  background: rgba(255, 255, 255, 0.9);
+  color: #272c30;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 15px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+  box-shadow: 
+    0 4px 15px rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(255, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  animation: quickButtonGlow 2s ease-in-out infinite;
+  overflow: hidden;
+}
+
+@keyframes quickButtonGlow {
+  0%, 100% { 
+    box-shadow: 
+      0 4px 15px rgba(255, 255, 255, 0.3),
+      0 0 20px rgba(255, 255, 255, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+  50% { 
+    box-shadow: 
+      0 6px 25px rgba(255, 255, 255, 0.5),
+      0 0 30px rgba(255, 255, 255, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 1);
+  }
+}
+
+.quick-respect-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  animation: quickButtonShine 3s ease-in-out infinite;
+}
+
+@keyframes quickButtonShine {
+  0% { left: -100%; opacity: 0; }
+  25% { opacity: 1; }
+  75% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+.quick-respect-button:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-3px);
+  box-shadow: 
+    0 8px 30px rgba(255, 255, 255, 0.6),
+    0 0 40px rgba(255, 255, 255, 0.5),
+    inset 0 2px 0 rgba(255, 255, 255, 1);
+  animation: none;
+}
+
+/* Statistics Section */
+.stats-section {
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(117, 90, 61, 0.2);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  padding: 12px;
+  background: rgba(117, 90, 61, 0.1);
+  border-radius: 12px;
+  border-left: 4px solid rgba(117, 90, 61, 0.5);
+}
+
+.stat-icon {
+  font-size: 20px;
+  width: 0px;
+  height: 0px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(117, 90, 61, 0.2);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.stat-text {
+  font-size: 15px;
+  color: #272c30;
+  font-weight: 600;
   margin: 0;
 }
 
-/* Amount Selection */
+/* Amount Selection with Enhanced UI */
 .amount-selection {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(254, 184, 34, 0.2);
+  border-radius: 20px;
+  padding: 25px;
 }
 
 .section-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: #1b262e;
+  font-size: 20px;
+  font-weight: 700;
+  color: #272c30;
+  margin: 0 0 8px 0;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: #755a3d;
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+.average-suggestion {
+  background: rgba(254, 184, 34, 0.1);
+  border: 1px solid rgba(254, 184, 34, 0.3);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.average-suggestion p {
+  font-size: 13px;
+  color: #755a3d;
   margin: 0;
+}
+
+.average-amount {
+  font-weight: 700;
+  color: #FEB822;
 }
 
 .amount-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
+  margin-bottom: 20px;
 }
 
 .amount-button {
-  padding: 16px 20px;
-  background-color: #ffffff;
-  border: 2px solid #e0e0e0;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(254, 184, 34, 0.3);
   border-radius: 16px;
   font-size: 16px;
-  font-weight: 500;
-  color: #1b262e;
+  font-weight: 600;
+  color: #272c30;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.amount-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(254, 184, 34, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.amount-button:hover::before {
+  left: 100%;
 }
 
 .amount-button:hover {
-  border-color: #fee28f;
-  background-color: #fefcf0;
+  border-color: rgba(254, 184, 34, 0.6);
+  background: rgba(254, 184, 34, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(254, 184, 34, 0.2);
 }
 
 .amount-button.selected {
-  border-color: #fee253;
-  background-color: #fee253;
-  color: #1b262e;
+  border-color: #FEB822;
+  background: linear-gradient(135deg, #FEB822 0%, #f5980d 100%);
+  color: #272c30;
+  box-shadow: 0 6px 20px rgba(254, 184, 34, 0.4);
 }
 
 .custom-amount-input {
   width: 100%;
   padding: 16px 20px;
-  border: 2px solid #e0e0e0;
+  border: 2px solid rgba(254, 184, 34, 0.3);
   border-radius: 16px;
   font-size: 16px;
-  color: #1b262e;
-  background-color: #ffffff;
-  transition: border-color 0.2s ease;
+  color: #272c30;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
   outline: none;
 }
 
 .custom-amount-input:focus {
-  border-color: #fee28f;
+  border-color: #FEB822;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 20px rgba(254, 184, 34, 0.3);
 }
 
 .custom-amount-input::placeholder {
-  color: #999;
+  color: #755a3d;
 }
 
-/* Send Support Button */
+/* Enhanced Send Button */
 .send-support-button {
   width: 100%;
-  padding: 18px;
-  background-color: #f9dc38;
-  color: #1b262e;
+  padding: 20px;
+  background: linear-gradient(135deg, #FEB822 0%, #f5980d 100%);
+  color: #272c30;
   border: none;
-  border-radius: 16px;
-  font-size: 18px;
-  font-weight: 600;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-  margin-top: auto;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  box-shadow: 0 8px 25px rgba(254, 184, 34, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.send-support-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.send-support-button:hover::before {
+  left: 100%;
 }
 
 .send-support-button:hover:not(:disabled) {
-  background-color: #f5d428;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(254, 184, 34, 0.5);
 }
 
 .send-support-button:disabled {
-  background-color: #f9dc38;
-  color: #1b262e;
-  cursor: not-allowed;
   opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 4px 15px rgba(254, 184, 34, 0.2);
 }
 
 .send-support-button:active:not(:disabled) {
-  transform: translateY(1px);
+  transform: translateY(-1px);
+}
+
+/* Tablet Responsive */
+@media (max-width: 768px) {
+  .respect-content {
+    flex-direction: column;
+    gap: 30px;
+    max-width: 600px;
+  }
+  
+  .respect-right-column {
+    width: 100%;
+  }
 }
 
 /* Mobile Responsive */
 @media (max-width: 480px) {
   .respect-content {
     padding: 20px 16px;
-    gap: 28px;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .respect-right-column {
+    width: 100%;
   }
   
   .song-cover {
-    width: 72px;
-    height: 72px;
+    width: 75px;
+    height: 75px;
   }
   
   .song-name {
-    font-size: 18px;
+    font-size: 20px;
+  }
+  
+  .artist-name {
+    font-size: 14px;
+  }
+  
+  .amount-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
   
   .amount-button {
-    padding: 14px 16px;
+    padding: 14px;
     font-size: 15px;
   }
   
   .custom-amount-input {
     padding: 14px 16px;
-    font-size: 16px;
   }
   
   .send-support-button {
-    padding: 16px;
-    font-size: 17px;
+    padding: 18px;
+    font-size: 18px;
   }
 }
 
-/* Very small screens */
 @media (max-width: 320px) {
   .respect-content {
     padding: 16px 12px;
+    gap: 20px;
   }
   
   .amount-grid {
-    gap: 10px;
+    gap: 8px;
   }
   
   .amount-button {
-    padding: 12px 14px;
+    padding: 12px;
     font-size: 14px;
   }
 }

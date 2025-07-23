@@ -4894,6 +4894,108 @@ html.no-scroll {
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
+/* Signup Page Checkboxes */
+.signup-checkboxes {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.signup-checkbox {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.signup-checkbox:checked {
+  background: linear-gradient(135deg, #FEB822 0%, #f5980d 100%);
+  border-color: #FEB822;
+}
+
+.signup-checkbox:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.checkbox-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+  cursor: pointer;
+  user-select: none;
+}
+
+.terms-link {
+  color: #FEB822;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.terms-link:hover {
+  color: #f5980d;
+  text-decoration: underline;
+}
+
+/* Signup Container - Taller for more content */
+.signup-container-desktop {
+  max-height: 85vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(254, 184, 34, 0.3) transparent;
+}
+
+.signup-container-desktop::-webkit-scrollbar {
+  width: 6px;
+}
+
+.signup-container-desktop::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.signup-container-desktop::-webkit-scrollbar-thumb {
+  background: rgba(254, 184, 34, 0.4);
+  border-radius: 3px;
+}
+
+.signup-container-desktop::-webkit-scrollbar-thumb:hover {
+  background: rgba(254, 184, 34, 0.6);
+}
+
+/* Optimize spacing for signup form */
+.signup-container-desktop .input-group-desktop {
+  margin-bottom: 16px;
+}
+
+.signup-container-desktop .login-form-desktop {
+  gap: 0;
+}
+
+.signup-container-desktop .signup-checkboxes {
+  margin: 16px 0;
+}
+
+.signup-container-desktop .login-button-desktop {
+  margin-top: 16px;
+}
+
+.signup-container-desktop .login-footer-desktop {
+  margin-top: 16px;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .desktop-login-page {
@@ -4968,11 +5070,16 @@ html.no-scroll {
     padding: 15px;
   }
   
-  .login-container-desktop {
+    .login-container-desktop {
     padding: 25px 20px;
     border-radius: 18px;
   }
-  
+
+  .signup-container-desktop {
+    max-height: 80vh;
+    padding: 20px 18px;
+  }
+
   .login-title-desktop {
     font-size: 24px;
   }
@@ -4987,6 +5094,36 @@ html.no-scroll {
   
   .feature-item span {
     font-size: 14px;
+  }
+
+  .signup-checkboxes {
+    margin: 18px 0;
+    gap: 11px;
+  }
+
+  .checkbox-label {
+    font-size: 13px;
+  }
+
+  .signup-checkbox {
+    width: 17px;
+    height: 17px;
+  }
+
+  .signup-container-desktop .input-group-desktop {
+    margin-bottom: 14px;
+  }
+
+  .signup-container-desktop .signup-checkboxes {
+    margin: 14px 0;
+  }
+
+  .signup-container-desktop .login-button-desktop {
+    margin-top: 14px;
+  }
+
+  .signup-container-desktop .login-footer-desktop {
+    margin-top: 14px;
   }
 }
 
@@ -5029,17 +5166,52 @@ html.no-scroll {
     font-size: 14px;
   }
   
-  .login-container-desktop {
+    .login-container-desktop {
     padding: 20px 18px;
     border-radius: 14px;
   }
-  
+
+  .signup-container-desktop {
+    max-height: 75vh;
+    padding: 16px 15px;
+  }
+
   .login-title-desktop {
     font-size: 20px;
   }
   
   .login-subtitle-desktop {
     font-size: 14px;
+  }
+
+  .signup-checkboxes {
+    margin: 16px 0;
+    gap: 10px;
+  }
+
+  .checkbox-label {
+    font-size: 13px;
+  }
+
+  .signup-checkbox {
+    width: 16px;
+    height: 16px;
+  }
+
+  .signup-container-desktop .input-group-desktop {
+    margin-bottom: 12px;
+  }
+
+  .signup-container-desktop .signup-checkboxes {
+    margin: 12px 0;
+  }
+
+  .signup-container-desktop .login-button-desktop {
+    margin-top: 12px;
+  }
+
+  .signup-container-desktop .login-footer-desktop {
+    margin-top: 12px;
   }
 }
 

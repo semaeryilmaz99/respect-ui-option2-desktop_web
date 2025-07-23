@@ -3081,6 +3081,8 @@ html {
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
   animation: quickButtonGlow 2s ease-in-out infinite;
   overflow: hidden;
+  display: block;
+  margin: 0 auto;
 }
 
 @keyframes quickButtonGlow {
@@ -3210,8 +3212,8 @@ html {
 }
 
 .amount-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 12px;
   margin-bottom: 20px;
 }
@@ -3253,11 +3255,131 @@ html {
   box-shadow: 0 4px 15px rgba(254, 184, 34, 0.2);
 }
 
+/* Progressive hover effects - 5 buttons with same background */
+.amount-button:nth-child(1):hover {
+  transform: scale(0.85) translateY(-2px);
+  opacity: 0.7;
+  background: linear-gradient(135deg, rgba(254, 184, 34, 0.15) 0%, rgba(245, 152, 13, 0.15) 100%);
+  border-color: rgba(254, 184, 34, 0.4);
+}
+
+.amount-button:nth-child(2):hover {
+  transform: scale(0.92) translateY(-2px);
+  opacity: 0.8;
+  background: linear-gradient(135deg, rgba(254, 184, 34, 0.15) 0%, rgba(245, 152, 13, 0.15) 100%);
+  border-color: rgba(254, 184, 34, 0.4);
+}
+
+.amount-button:nth-child(3):hover {
+  transform: scale(1) translateY(-2px);
+  opacity: 0.95;
+  background: linear-gradient(135deg, rgba(254, 184, 34, 0.15) 0%, rgba(245, 152, 13, 0.15) 100%);
+  border-color: rgba(254, 184, 34, 0.4);
+}
+
+.amount-button:nth-child(4):hover {
+  transform: scale(1.1) translateY(-2px);
+  opacity: 1;
+  background: linear-gradient(135deg, rgba(254, 184, 34, 0.15) 0%, rgba(245, 152, 13, 0.15) 100%);
+  border-color: rgba(254, 184, 34, 0.4);
+}
+
+.amount-button:nth-child(5):hover {
+  transform: scale(1.2) translateY(-2px);
+  opacity: 1;
+  background: linear-gradient(135deg, rgba(254, 184, 34, 0.15) 0%, rgba(245, 152, 13, 0.15) 100%);
+  border-color: rgba(254, 184, 34, 0.4);
+}
+
 .amount-button.selected {
   border-color: #FEB822;
   background: linear-gradient(135deg, #FEB822 0%, #f5980d 100%);
   color: #272c30;
   box-shadow: 0 6px 20px rgba(254, 184, 34, 0.4);
+}
+
+/* Progressive scaling based on amount - 5 buttons with same background */
+.amount-button:nth-child(1) {
+  opacity: 0.5;
+  transform: scale(0.8);
+  font-size: 13px;
+  padding: 10px;
+  background: linear-gradient(135deg, rgba(254, 184, 34, 0.1) 0%, rgba(245, 152, 13, 0.1) 100%);
+  border: 2px solid rgba(254, 184, 34, 0.3);
+}
+
+.amount-button:nth-child(2) {
+  opacity: 0.65;
+  transform: scale(0.87);
+  font-size: 14px;
+  padding: 12px;
+  background: linear-gradient(135deg, rgba(254, 184, 34, 0.1) 0%, rgba(245, 152, 13, 0.1) 100%);
+  border: 2px solid rgba(254, 184, 34, 0.3);
+}
+
+.amount-button:nth-child(3) {
+  opacity: 0.8;
+  transform: scale(0.95);
+  font-size: 15px;
+  padding: 14px;
+  background: linear-gradient(135deg, rgba(254, 184, 34, 0.1) 0%, rgba(245, 152, 13, 0.1) 100%);
+  border: 2px solid rgba(254, 184, 34, 0.3);
+}
+
+.amount-button:nth-child(4) {
+  opacity: 0.95;
+  transform: scale(1.05);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(254, 184, 34, 0.1) 0%, rgba(245, 152, 13, 0.1) 100%);
+  border: 2px solid rgba(254, 184, 34, 0.3);
+}
+
+.amount-button:nth-child(5) {
+  opacity: 1;
+  transform: scale(1.15);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(254, 184, 34, 0.1) 0%, rgba(245, 152, 13, 0.1) 100%);
+  border: 2px solid rgba(254, 184, 34, 0.3);
+}
+
+/* Selected state maintains the scaling - 5 buttons with same background */
+.amount-button:nth-child(1).selected {
+  transform: scale(0.8);
+  background: linear-gradient(135deg, #FEB822 0%, #f5980d 100%);
+  border-color: #FEB822;
+  opacity: 0.5;
+}
+
+.amount-button:nth-child(2).selected {
+  transform: scale(0.87);
+  background: linear-gradient(135deg, #FEB822 0%, #f5980d 100%);
+  border-color: #FEB822;
+  opacity: 0.65;
+}
+
+.amount-button:nth-child(3).selected {
+  transform: scale(0.95);
+  background: linear-gradient(135deg, #FEB822 0%, #f5980d 100%);
+  border-color: #FEB822;
+  opacity: 0.8;
+}
+
+.amount-button:nth-child(4).selected {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #FEB822 0%, #f5980d 100%);
+  border-color: #FEB822;
+  opacity: 0.95;
+}
+
+.amount-button:nth-child(5).selected {
+  transform: scale(1.15);
+  background: linear-gradient(135deg, #FEB822 0%, #f5980d 100%);
+  border-color: #FEB822;
+  opacity: 1;
 }
 
 .custom-amount-input {
@@ -3342,6 +3464,44 @@ html {
   .respect-right-column {
     width: 100%;
   }
+
+  /* Tablet progressive scaling - 5 buttons */
+  .amount-button:nth-child(1) {
+    opacity: 0.55;
+    transform: scale(0.83);
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .amount-button:nth-child(2) {
+    opacity: 0.7;
+    transform: scale(0.89);
+    font-size: 14px;
+    padding: 11px;
+  }
+
+  .amount-button:nth-child(3) {
+    opacity: 0.85;
+    transform: scale(0.96);
+    font-size: 15px;
+    padding: 13px;
+  }
+
+  .amount-button:nth-child(4) {
+    opacity: 0.95;
+    transform: scale(1.03);
+    font-size: 16px;
+    font-weight: 600;
+    padding: 15px;
+  }
+
+  .amount-button:nth-child(5) {
+    opacity: 1;
+    transform: scale(1.1);
+    font-size: 17px;
+    font-weight: 700;
+    padding: 17px;
+  }
 }
 
 /* Mobile Responsive */
@@ -3370,15 +3530,47 @@ html {
   }
   
   .amount-grid {
-    grid-template-columns: 1fr;
     gap: 10px;
   }
   
-  .amount-button {
-    padding: 14px;
-    font-size: 15px;
+    /* Mobile progressive scaling - 5 buttons */
+  .amount-button:nth-child(1) {
+    opacity: 0.6;
+    transform: scale(0.85);
+    font-size: 12px;
+    padding: 8px;
   }
-  
+
+  .amount-button:nth-child(2) {
+    opacity: 0.75;
+    transform: scale(0.91);
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .amount-button:nth-child(3) {
+    opacity: 0.85;
+    transform: scale(0.97);
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .amount-button:nth-child(4) {
+    opacity: 0.95;
+    transform: scale(1.02);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 13px;
+  }
+
+  .amount-button:nth-child(5) {
+    opacity: 1;
+    transform: scale(1.08);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 15px;
+  }
+
   .custom-amount-input {
     padding: 14px 16px;
   }
@@ -3399,9 +3591,42 @@ html {
     gap: 8px;
   }
   
-  .amount-button {
-    padding: 12px;
+  /* Ultra-mobile progressive scaling - 5 buttons */
+  .amount-button:nth-child(1) {
+    opacity: 0.65;
+    transform: scale(0.88);
+    font-size: 11px;
+    padding: 6px;
+  }
+
+  .amount-button:nth-child(2) {
+    opacity: 0.75;
+    transform: scale(0.93);
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .amount-button:nth-child(3) {
+    opacity: 0.85;
+    transform: scale(0.98);
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .amount-button:nth-child(4) {
+    opacity: 0.95;
+    transform: scale(1.01);
     font-size: 14px;
+    font-weight: 600;
+    padding: 11px;
+  }
+
+  .amount-button:nth-child(5) {
+    opacity: 1;
+    transform: scale(1.05);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 13px;
   }
 }
 

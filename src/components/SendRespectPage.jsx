@@ -4,7 +4,7 @@ const SendRespectPage = () => {
   const [selectedAmount, setSelectedAmount] = useState(null)
   const [customAmount, setCustomAmount] = useState('')
 
-  const respectAmounts = [50, 100, 200, 500]
+  const respectAmounts = [50, 100, 200, 500, 1000]
   const averageAmount = 180
 
   const recentSupporters = [
@@ -117,11 +117,11 @@ const SendRespectPage = () => {
 
           <input
             type="number"
-              placeholder="Özel miktar girin (min: 10)"
+              placeholder="Özel miktar girin (min: 50)"
             value={customAmount}
             onChange={handleCustomAmountChange}
             className="custom-amount-input"
-              min="10"
+              min="50"
           />
         </div>
 

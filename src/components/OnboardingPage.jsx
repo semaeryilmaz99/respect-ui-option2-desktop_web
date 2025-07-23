@@ -69,7 +69,7 @@ const OnboardingPage = () => {
     },
     {
       title: "Müzik Topluluğu",
-      description: "Aynı müzik zevkine sahip insanlarla tanışın, playlist'ler paylaşın ve müzik sohbetleri yapın."
+      description: "Aynı müzik zevkine sahip insanlarla tanışın ve müzik sohbetleri yapın."
     },
     {
       title: "Özel İçerikler",

@@ -271,9 +271,9 @@ const FeedPage = () => {
                   <p className="new-song-track">{newSongData.title}</p>
                   <p className="new-song-description">{newSongData.description}</p>
                   <div className="new-song-stats">
-                    <span className="stat-item">🎧 {newSongData.stats.listens}</span>
-                    <span className="stat-item">💛 {newSongData.stats.respects}</span>
-                    <span className="stat-item">📤 {newSongData.stats.shares}</span>
+                    <span className="stat-item">{newSongData.stats.listens} dinlenme</span>
+                    <span className="stat-item">{newSongData.stats.respects} respect</span>
+                    <span className="stat-item">{newSongData.stats.shares} paylaşım</span>
                   </div>
                   <div className="new-song-actions">
                     <button className="play-button">Dinle</button>

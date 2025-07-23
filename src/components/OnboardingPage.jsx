@@ -99,15 +99,15 @@ const OnboardingPage = () => {
       <div className="onboarding-inner">
         {/* Progress Steps */}
         <div className="onboarding-progress">
-          {steps.map((_, index) => (
+        {steps.map((_, index) => (
             <div key={index} className="progress-step">
               <div className={`step-circle ${getStepStatus(index)}`}>
                 {index + 1}
               </div>
               {index < steps.length - 1 && <div className="step-connector" />}
             </div>
-          ))}
-        </div>
+        ))}
+      </div>
 
         {/* Floating Decorations */}
         <div className="onboarding-decoration">
@@ -117,7 +117,7 @@ const OnboardingPage = () => {
           <div className="onb-decoration-circle onb-circle-4"></div>
         </div>
 
-        <div className="onboarding-content">
+      <div className="onboarding-content">
         
         {/* Step 1: Introduction */}
         {currentStep === 0 && (
@@ -143,7 +143,7 @@ const OnboardingPage = () => {
               <h1 className="onb-title">{currentStepData.title}</h1>
               <p className="onb-subtitle">{currentStepData.subtitle}</p>
               <p className="onb-description">{currentStepData.description}</p>
-            </div>
+                  </div>
             
             <div className="howto-grid">
               {howtoSteps.map((step, index) => (

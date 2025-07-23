@@ -41,7 +41,7 @@ const SendRespectPage = () => {
   return (
     <div className="send-respect-page">
       <div className="respect-header">
-        <h1 className="respect-title">Send Respect</h1>
+        <h1 className="respect-title">Respect Gönder</h1>
       </div>
 
       <div className="respect-content">
@@ -55,8 +55,8 @@ const SendRespectPage = () => {
           </div>
 
           {/* Song Info Section */}
-          <div className="song-info-section">
-            <div className="song-cover">
+        <div className="song-info-section">
+          <div className="song-cover">
               <img src="/src/assets/song/Image.png" alt="Sunset Boulevard" />
             </div>
             <div className="song-details">
@@ -94,7 +94,7 @@ const SendRespectPage = () => {
         {/* Right Column */}
         <div className="respect-right-column">
           {/* Amount Selection */}
-          <div className="amount-selection">
+        <div className="amount-selection">
             <h3 className="section-title">Respect Miktarını Seç</h3>
             <p className="section-subtitle">Ne kadar destek olmak istiyorsun?</p>
             
@@ -102,36 +102,36 @@ const SendRespectPage = () => {
             <div className="average-suggestion">
               <p>Tek seferde gönderilen ortalama miktar: <span className="average-amount">{averageAmount} Respect</span></p>
             </div>
-            
-            <div className="amount-grid">
-              {respectAmounts.map((amount) => (
-                <button
-                  key={amount}
-                  className={`amount-button ${selectedAmount === amount ? 'selected' : ''}`}
-                  onClick={() => handleAmountSelect(amount)}
-                >
-                  {amount} Respect
-                </button>
-              ))}
-            </div>
-
-            <input
-              type="number"
-              placeholder="Özel miktar girin (min: 10)"
-              value={customAmount}
-              onChange={handleCustomAmountChange}
-              className="custom-amount-input"
-              min="10"
-            />
+          
+          <div className="amount-grid">
+            {respectAmounts.map((amount) => (
+              <button
+                key={amount}
+                className={`amount-button ${selectedAmount === amount ? 'selected' : ''}`}
+                onClick={() => handleAmountSelect(amount)}
+              >
+                {amount} Respect
+              </button>
+            ))}
           </div>
 
-          <button 
-            className="send-support-button"
-            onClick={handleSendRespect}
-            disabled={!selectedAmount && !customAmount}
-          >
+          <input
+            type="number"
+              placeholder="Özel miktar girin (min: 10)"
+            value={customAmount}
+            onChange={handleCustomAmountChange}
+            className="custom-amount-input"
+              min="10"
+          />
+        </div>
+
+        <button 
+          className="send-support-button"
+          onClick={handleSendRespect}
+          disabled={!selectedAmount && !customAmount}
+        >
             Respect Gönder ve Destekle
-          </button>
+        </button>
         </div>
       </div>
     </div>

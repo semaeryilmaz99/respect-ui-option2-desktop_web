@@ -12,8 +12,8 @@ const UserPage = () => {
 
   // Dummy data
   const currentlyPlaying = {
-    song: "Midnight City",
-    artist: "M83",
+    song: "İstakoz",
+    artist: "Gaye Su Akyol",
     cover: "/src/assets/song/Image (5).png"
   }
 
@@ -75,6 +75,33 @@ const UserPage = () => {
             </div>
           </div>
           
+          {/* B) User Actions - Profile info'nun altına taşındı */}
+          <div className="user-actions">
+            {/* B) Toplam Respect Counter */}
+            {respectVisible && (
+              <div className="respect-counter">
+                <div>
+                  <div className="respect-count">{formData.respectCount.toLocaleString()}</div>
+                  <div className="respect-label">Toplam Respect</div>
+                </div>
+                <button className="toggle-respect" onClick={toggleRespectVisibility}>
+                  Gizle
+                </button>
+              </div>
+            )}
+            
+            {!respectVisible && (
+              <button className="toggle-respect" onClick={toggleRespectVisibility}>
+                Respect Sayısını Göster
+              </button>
+            )}
+            
+            {/* F) Edit Profile Button */}
+            <button className="edit-profile-btn" onClick={handleEditProfile}>
+              Profili Düzenle
+            </button>
+          </div>
+          
           {/* C) Şu An Ne Dinliyor - Header içine taşındı */}
           <div className="now-playing-section">
             <h2 className="now-playing-title">Şu An Dinliyor</h2>
@@ -95,32 +122,6 @@ const UserPage = () => {
             </div>
           </div>
         </div>
-        
-        <div className="user-actions">
-          {/* B) Toplam Respect Counter */}
-          {respectVisible && (
-            <div className="respect-counter">
-              <div>
-                <div className="respect-count">{formData.respectCount.toLocaleString()}</div>
-                <div className="respect-label">Toplam Respect</div>
-              </div>
-              <button className="toggle-respect" onClick={toggleRespectVisibility}>
-                Gizle
-              </button>
-            </div>
-          )}
-          
-          {!respectVisible && (
-            <button className="toggle-respect" onClick={toggleRespectVisibility}>
-              Respect Sayısını Göster
-            </button>
-          )}
-          
-          {/* F) Edit Profile Button */}
-          <button className="edit-profile-btn" onClick={handleEditProfile}>
-            Profili Düzenle
-          </button>
-        </div>
       </div>
 
       {/* D & E) Main Content Grid */}
@@ -137,8 +138,12 @@ const UserPage = () => {
                 <div className="artist-avatar">
                   <img src={artist.cover} alt={artist.name} />
                 </div>
-                <h3 className="artist-name">{artist.name}</h3>
-                <p className="artist-respect-count">{artist.respectCount} Respect</p>
+                <div className="artist-info">
+                  <h3 className="artist-name">{artist.name}</h3>
+                </div>
+                <div className="artist-respect-count">
+                  {artist.respectCount} Respect
+                </div>
               </div>
             ))}
           </div>

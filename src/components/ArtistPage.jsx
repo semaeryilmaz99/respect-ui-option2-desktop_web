@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function ArtistPage() {
+  const [isChatOpen, setIsChatOpen] = useState(true)
+
   // Scroll özelliği açık
   useEffect(() => {
     document.body.classList.remove('no-scroll')
@@ -10,6 +12,10 @@ function ArtistPage() {
       // Cleanup gerekmiyor
     }
   }, [])
+
+  const toggleChat = () => {
+    setIsChatOpen(!isChatOpen)
+  }
 
   // Dummy sanatçı verisi
   const artistData = {
@@ -208,62 +214,34 @@ function ArtistPage() {
         
         {/* A) Sanatçı Header */}
         <section className="artist-header">
-          <div className="artist-info">
-            <div className="artist-image-container">
-              <img src={artistData.image} alt={artistData.name} className="artist-image" />
-              <div className="total-respect-badge">
-                {artistData.totalRespect} Respect
-              </div>
-            </div>
-            
-            <div className="artist-details">
-              <h1 className="artist-name">{artistData.name}</h1>
-              <div className="artist-stats">
-                <span className="stat-item">{artistData.monthlyListeners} aylık dinleyici</span>
-                <span className="stat-item">{artistData.followers} takipçi</span>
-              </div>
-              
-              <div className="artist-bio">
-                <p className="bio-text">{artistData.bio}</p>
-                <div className="artist-message">
-                  <h4>Sanatçı Mesajı</h4>
-                  <p>{artistData.message}</p>
-                </div>
-              </div>
-              
-              <button className="quick-respect-btn">
-                Hızlı Respect Gönder
-              </button>
+          <div className="artist-image-container">
+            <img src={artistData.image} alt={artistData.name} className="artist-image" />
+            <div className="total-respect-badge">
+              {artistData.totalRespect} Respect
             </div>
           </div>
           
-          {/* En Çok Respect Gönderenler - Header İçinde */}
-          <div className="header-top-respecters">
-            <div className="header-respecters-title">
-              <h3>Top Respecters</h3>
-              <span className="respecters-count">Bu ay</span>
+          <div className="artist-details">
+            <h1 className="artist-name">{artistData.name}</h1>
+            <div className="artist-stats">
+              <span className="stat-item">{artistData.monthlyListeners} aylık dinleyici</span>
+              <span className="stat-item">{artistData.followers} takipçi</span>
             </div>
             
-            <div className="header-respecters-list">
-              {topRespectSenders.slice(0, 3).map((user) => (
-                <div key={user.id} className="header-respecter-item">
-                  <div className="header-rank-badge">
-                    <span className="header-rank-number">#{user.rank}</span>
-                    <span className={`header-rank-change ${getRankClass(user.change)}`}>
-                      {getRankIcon(user.change)}
-                    </span>
-                  </div>
-                  
-                  <img src={user.avatar} alt={user.username} className="header-respecter-avatar" />
-                  
-                  <div className="header-respecter-info">
-                    <h5 className="header-respecter-username">{user.username}</h5>
-                    <p className="header-respecter-total">{user.totalRespect}</p>
-                  </div>
-                </div>
-              ))}
+            <div className="artist-bio">
+              <p className="bio-text">{artistData.bio}</p>
+              <div className="artist-message">
+                <h4>Sanatçı Mesajı</h4>
+                <p>{artistData.message}</p>
+              </div>
             </div>
+            
+            <button className="quick-respect-btn">
+              Hızlı Respect Gönder
+            </button>
           </div>
+          
+
         </section>
 
         {/* Recent Supporters - Yatay Sıralama */}
@@ -287,12 +265,40 @@ function ArtistPage() {
           </div>
         </section>
 
+        {/* Top Respecters - Fixed Sol Üst Köşe */}
+        <div className="top-respecters-fixed">
+          <section className="top-respecters-section">
+            <div className="section-header">
+              <h3 className="section-title">Top Respecters</h3>
+              <span className="section-subtitle">Bu ay</span>
+            </div>
+            
+            <div className="top-respecters-list">
+              {topRespectSenders.map((user) => (
+                <div key={user.id} className="respecter-item">
+                  <div className="rank-badge">
+                    <span className="rank-number">#{user.rank}</span>
+                    <span className={`rank-change ${getRankClass(user.change)}`}>
+                      {getRankIcon(user.change)}
+                    </span>
+                  </div>
+                  
+                  <img src={user.avatar} alt={user.username} className="respecter-avatar" />
+                  
+                  <div className="respecter-info">
+                    <h5 className="respecter-username">{user.username}</h5>
+                    <p className="respecter-total">{user.totalRespect}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+
         {/* Ana Grid Layout */}
         <div className="artist-content-grid">
           
-          {/* Sol Kolon - Kaldırıldı */}
-
-          {/* Orta Kolon */}
+          {/* Ana Kolon - Tek Kolon */}
           <div className="center-column">
             
             {/* E) Diskografi */}
@@ -362,45 +368,50 @@ function ArtistPage() {
       </div>
 
       {/* D) Fixed Chat */}
-      <div className="artist-chat-fixed">
+      <div className={`artist-chat-fixed ${isChatOpen ? 'chat-open' : 'chat-collapsed'}`}>
         <div className="chat-header">
           <h3 className="chat-title">Sanatçı Sohbeti</h3>
           <div className="chat-info">
             <span className="online-count">34 aktif</span>
+            <button className="chat-toggle-btn" onClick={toggleChat}>
+              {isChatOpen ? '↓' : '↑'}
+            </button>
           </div>
         </div>
 
-        <div className="chat-messages">
-          {chatMessages.map((msg) => (
-            <div 
-              key={msg.id} 
-              className={`chat-message ${msg.isArtist ? 'artist-message' : 'user-message'} ${msg.hasRespectPriority ? 'priority-message' : ''}`}
-            >
-              <div className="message-content">
-                <div className="message-header">
-                  <img src={msg.avatar} alt={msg.username} className="message-avatar" />
-                  <span className="message-username">{msg.username}</span>
-                  {msg.hasRespectPriority && <span className="priority-badge">💎</span>}
+        <div className={`chat-content ${isChatOpen ? 'chat-content-visible' : 'chat-content-hidden'}`}>
+          <div className="chat-messages">
+              {chatMessages.map((msg) => (
+                <div 
+                  key={msg.id} 
+                  className={`chat-message ${msg.isArtist ? 'artist-message' : 'user-message'} ${msg.hasRespectPriority ? 'priority-message' : ''}`}
+                >
+                  <div className="message-content">
+                    <div className="message-header">
+                      <img src={msg.avatar} alt={msg.username} className="message-avatar" />
+                      <span className="message-username">{msg.username}</span>
+                      {msg.hasRespectPriority && <span className="priority-badge">💎</span>}
+                    </div>
+                    <p className="message-text">{msg.message}</p>
+                    <span className="message-time">{msg.time}</span>
+                  </div>
                 </div>
-                <p className="message-text">{msg.message}</p>
-                <span className="message-time">{msg.time}</span>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        <div className="chat-requirement-notice">
-          <p>💡 Sohbete katılmak için bu sanatçıya en az 20 respect göndermiş olmalısınız.</p>
-        </div>
+            <div className="chat-requirement-notice">
+              <p>💡 Sohbete katılmak için bu sanatçıya en az 20 respect göndermiş olmalısınız.</p>
+            </div>
 
-        <div className="chat-input-area">
-          <input 
-            type="text" 
-            placeholder="Mesajınızı yazın..." 
-            className="chat-input"
-            disabled
-          />
-          <button className="send-button" disabled>Gönder</button>
+            <div className="chat-input-area">
+              <input 
+                type="text" 
+                placeholder="Mesajınızı yazın..." 
+                className="chat-input"
+                disabled
+              />
+              <button className="send-button" disabled>Gönder</button>
+            </div>
         </div>
       </div>
 

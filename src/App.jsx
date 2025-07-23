@@ -1,9 +1,9 @@
 import React from 'react'
 import './App.css'
-import SendRespectPage from './components/SendRespectPage'
+import ArtistPage from './components/ArtistPage'
 
 function App() {
-  return <SendRespectPage />
+  return <ArtistPage />
 }
 
 export default App

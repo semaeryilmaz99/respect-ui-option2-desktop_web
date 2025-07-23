@@ -4994,6 +4994,7 @@ html:has(.desktop-feed-page) {
 .artist-image-container {
   position: relative;
   flex-shrink: 0;
+  margin-left: 10px;
 }
 
 .artist-image {
@@ -5006,17 +5007,15 @@ html:has(.desktop-feed-page) {
 }
 
 .total-respect-badge {
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #FEB822;
+  background: #ffffff;
   color: #272c30;
-  padding: 6px 12px;
-  border-radius: 16px;
-  font-size: 13px;
+  padding: 16px;
+  border-radius: 20px;
+  font-size: 14px;
   font-weight: 700;
   box-shadow: 0 4px 15px rgba(254, 184, 34, 0.4);
+  text-align: center;
+  margin-top: 20px;
 }
 
 .artist-details {
@@ -5029,26 +5028,13 @@ html:has(.desktop-feed-page) {
   font-size: 24px;
   font-weight: 700;
   color: #272c30;
-  margin: 0 0 6px 0;
+  margin: 0 0 12px 0;
   line-height: 1.2;
 }
 
-.artist-stats {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 14px;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
 
-.stat-item {
-  font-size: 13px;
-  color: #755a3d;
-  background: rgba(254, 184, 34, 0.1);
-  padding: 5px 10px;
-  border-radius: 8px;
-  font-weight: 600;
-}
+
+
 
 .artist-bio {
   margin-bottom: 16px;
@@ -5368,8 +5354,22 @@ html:has(.desktop-feed-page) {
   backdrop-filter: blur(15px);
   border: 1px solid rgba(254, 184, 34, 0.3);
   border-radius: 16px;
-  padding: 20px;
+  padding: 24px;
   box-shadow: 0 10px 30px rgba(254, 184, 34, 0.2), 0 6px 20px rgba(39, 44, 48, 0.1);
+}
+
+.top-respecters-section .section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #272c30;
+  margin: 0 0 8px 0;
+}
+
+.top-respecters-section .section-subtitle {
+  font-size: 16px;
+  color: #755a3d;
+  margin: 0 0 20px 0;
+  font-weight: 500;
 }
 
 .top-respecters-list {
@@ -5381,11 +5381,11 @@ html:has(.desktop-feed-page) {
 .respecter-item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 15px;
   background: rgba(255, 255, 255, 0.6);
   border: 1px solid rgba(254, 184, 34, 0.2);
   border-radius: 12px;
-  padding: 12px;
+  padding: 16px;
   transition: all 0.3s ease;
 }
 
@@ -5399,24 +5399,24 @@ html:has(.desktop-feed-page) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 40px;
+  min-width: 50px;
 }
 
 .rank-number {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
   color: #FEB822;
   line-height: 1;
 }
 
 .rank-change {
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 2px;
 }
 
 .respecter-avatar {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: 2px solid rgba(254, 184, 34, 0.3);
   object-fit: cover;
@@ -5427,14 +5427,14 @@ html:has(.desktop-feed-page) {
 }
 
 .respecter-username {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #272c30;
   margin: 0 0 4px 0;
 }
 
 .respecter-total {
-  font-size: 12px;
+  font-size: 14px;
   color: #755a3d;
   font-weight: 500;
   margin: 0;
@@ -5594,7 +5594,7 @@ html:has(.desktop-feed-page) {
   padding: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   position: relative;
-  height: 35px;
+  height: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -5746,9 +5746,9 @@ html:has(.desktop-feed-page) {
 /* Ultra Compact Song Cards with Glow */
 .song-card {
   display: flex;
-  gap: 8px;
-  padding: 6px;
-  border-radius: 5px;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 8px;
   transition: all 0.2s ease;
   align-items: center;
   cursor: pointer;
@@ -5809,9 +5809,9 @@ html:has(.desktop-feed-page) {
 
 /* Ultra Mini Album Art with Glow */
 .song-image {
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
   object-fit: cover;
   flex-shrink: 0;
   position: relative;
@@ -5891,9 +5891,9 @@ html:has(.desktop-feed-page) {
 }
 
 .song-title {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 600;
-  margin: 0 0 2px 0;
+  margin: 0 0 3px 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -5916,7 +5916,7 @@ html:has(.desktop-feed-page) {
 }
 
 .song-meta {
-  font-size: 10px;
+  font-size: 12px;
   color: #755a3d;
   margin: 0;
   white-space: nowrap;
@@ -5936,12 +5936,12 @@ html:has(.desktop-feed-page) {
 
 /* Glowing Compact Respect Counter */
 .song-respects {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 7px;
+  padding: 3px 8px;
+  border-radius: 8px;
   white-space: nowrap;
-  min-width: 24px;
+  min-width: 28px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -6334,7 +6334,7 @@ html:has(.desktop-feed-page) {
   }
   
   .disco-section-header {
-    height: 32px;
+    height: 22px;
     margin: 0;
     padding: 0;
   }
@@ -6410,7 +6410,7 @@ html:has(.desktop-feed-page) {
   }
   
   .disco-section-header {
-    height: 30px;
+    height: 20px;
     margin: 0;
     padding: 0;
   }
@@ -6500,7 +6500,7 @@ html:has(.desktop-feed-page) {
   }
   
   .disco-section-header {
-    height: 28px;
+    height: 18px;
     margin: 0;
     padding: 0;
   }
@@ -6515,13 +6515,13 @@ html:has(.desktop-feed-page) {
   }
   
   .song-card {
-    padding: 5px;
-    gap: 6px;
+    padding: 8px;
+    gap: 10px;
   }
   
   .song-image {
-    width: 28px;
-    height: 28px;
+    width: 40px;
+    height: 40px;
   }
   
   .song-image::after {
@@ -6532,11 +6532,11 @@ html:has(.desktop-feed-page) {
   }
   
   .song-title {
-    font-size: 11px;
+    font-size: 13px;
   }
   
   .song-meta {
-    font-size: 9px;
+    font-size: 11px;
   }
   
   .song-respects {
@@ -6623,7 +6623,7 @@ html:has(.desktop-feed-page) {
   }
   
   .disco-section-header {
-    height: 25px;
+    height: 15px;
     margin: 0;
     padding: 0;
   }
@@ -6642,13 +6642,13 @@ html:has(.desktop-feed-page) {
   }
   
   .song-card {
-    padding: 4px;
-    gap: 5px;
+    padding: 6px;
+    gap: 8px;
   }
   
   .song-image {
-    width: 24px;
-    height: 24px;
+    width: 36px;
+    height: 36px;
   }
   
   .song-image::after {
@@ -6659,17 +6659,17 @@ html:has(.desktop-feed-page) {
   }
   
   .song-title {
-    font-size: 10px;
+    font-size: 12px;
   }
   
   .song-meta {
-    font-size: 8px;
+    font-size: 10px;
   }
   
   .song-respects {
-    font-size: 8px;
-    padding: 1px 4px;
-    min-width: 18px;
+    font-size: 10px;
+    padding: 2px 6px;
+    min-width: 22px;
   }
 }
 

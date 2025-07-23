@@ -223,10 +223,6 @@ function ArtistPage() {
           
           <div className="artist-details">
             <h1 className="artist-name">{artistData.name}</h1>
-            <div className="artist-stats">
-              <span className="stat-item">{artistData.monthlyListeners} aylık dinleyici</span>
-              <span className="stat-item">{artistData.followers} takipçi</span>
-            </div>
             
             <div className="artist-bio">
               <p className="bio-text">{artistData.bio}</p>

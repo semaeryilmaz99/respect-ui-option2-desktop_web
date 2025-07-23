@@ -4580,7 +4580,7 @@ html.no-scroll {
 .login-container-desktop {
   width: 100%;
   max-width: 420px;
-  padding: 30px 35px;
+  padding: 25px 30px;
   background: linear-gradient(135deg,
     rgba(255, 255, 255, 0.25) 0%,
     rgba(255, 255, 255, 0.1) 50%,
@@ -4593,13 +4593,70 @@ html.no-scroll {
     0 20px 60px rgba(39, 44, 48, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  max-height: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
   z-index: 2;
-  overflow: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(254, 184, 34, 0.3) transparent;
+}
+
+.login-container-desktop::-webkit-scrollbar {
+  width: 6px;
+}
+
+.login-container-desktop::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.login-container-desktop::-webkit-scrollbar-thumb {
+  background: rgba(254, 184, 34, 0.4);
+  border-radius: 3px;
+}
+
+.login-container-desktop::-webkit-scrollbar-thumb:hover {
+  background: rgba(254, 184, 34, 0.6);
+}
+
+/* Login Container Spacing Optimization */
+.login-container-desktop .login-header-desktop {
+  margin-bottom: 18px;
+}
+
+.login-container-desktop .input-group-desktop {
+  margin-bottom: 12px;
+}
+
+.login-container-desktop .input-label-desktop {
+  margin-bottom: 6px;
+}
+
+.login-container-desktop .login-input-desktop {
+  padding: 12px 16px;
+}
+
+.login-container-desktop .spotify-login-button-desktop {
+  margin-bottom: 14px;
+}
+
+.login-container-desktop .divider-desktop {
+  margin: 14px 0;
+}
+
+.login-container-desktop .login-form-desktop {
+  margin-bottom: 14px;
+}
+
+.login-container-desktop .login-button-desktop {
+  margin-bottom: 14px;
+}
+
+.login-container-desktop .login-footer-desktop {
+  margin-top: 0;
 }
 
 .login-container-desktop::before {
@@ -4951,10 +5008,11 @@ html.no-scroll {
 
 /* Signup Container - Taller for more content */
 .signup-container-desktop {
-  max-height: 85vh;
+  max-height: 75vh;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(254, 184, 34, 0.3) transparent;
+  padding: 20px 30px;
 }
 
 .signup-container-desktop::-webkit-scrollbar {
@@ -4976,24 +5034,40 @@ html.no-scroll {
 }
 
 /* Optimize spacing for signup form */
+.signup-container-desktop .login-header-desktop {
+  margin-bottom: 18px;
+}
+
 .signup-container-desktop .input-group-desktop {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+}
+
+.signup-container-desktop .input-label-desktop {
+  margin-bottom: 6px;
+}
+
+.signup-container-desktop .login-input-desktop {
+  padding: 12px 16px;
 }
 
 .signup-container-desktop .login-form-desktop {
   gap: 0;
+  margin-top: 0;
 }
 
 .signup-container-desktop .signup-checkboxes {
-  margin: 16px 0;
+  margin: 12px 0;
+  gap: 8px;
+}
+
+.signup-container-desktop .checkbox-group {
+  gap: 6px;
 }
 
 .signup-container-desktop .login-button-desktop {
-  margin-top: 16px;
-}
-
-.signup-container-desktop .login-footer-desktop {
-  margin-top: 16px;
+  margin-top: 12px;
+  margin-bottom: 0;
+  padding: 12px 20px;
 }
 
 /* Responsive Design */
@@ -5071,13 +5145,46 @@ html.no-scroll {
   }
   
     .login-container-desktop {
-    padding: 25px 20px;
+    padding: 20px 18px;
     border-radius: 18px;
+    max-height: 75vh;
+  }
+
+  .login-container-desktop .login-header-desktop {
+    margin-bottom: 16px;
+  }
+
+  .login-container-desktop .input-group-desktop {
+    margin-bottom: 12px;
+  }
+
+  .login-container-desktop .input-label-desktop {
+    margin-bottom: 5px;
+  }
+
+  .login-container-desktop .login-input-desktop {
+    padding: 10px 14px;
+  }
+
+  .login-container-desktop .spotify-login-button-desktop {
+    margin-bottom: 14px;
+  }
+
+  .login-container-desktop .divider-desktop {
+    margin: 14px 0;
+  }
+
+  .login-container-desktop .login-form-desktop {
+    margin-bottom: 14px;
+  }
+
+  .login-container-desktop .login-button-desktop {
+    margin-bottom: 14px;
   }
 
   .signup-container-desktop {
-    max-height: 80vh;
-    padding: 20px 18px;
+    max-height: 72vh;
+    padding: 16px 18px;
   }
 
   .login-title-desktop {
@@ -5110,20 +5217,35 @@ html.no-scroll {
     height: 17px;
   }
 
-  .signup-container-desktop .input-group-desktop {
+  .signup-container-desktop .login-header-desktop {
     margin-bottom: 14px;
   }
 
+  .signup-container-desktop .input-group-desktop {
+    margin-bottom: 10px;
+  }
+
+  .signup-container-desktop .input-label-desktop {
+    margin-bottom: 5px;
+  }
+
+  .signup-container-desktop .login-input-desktop {
+    padding: 10px 14px;
+  }
+
   .signup-container-desktop .signup-checkboxes {
-    margin: 14px 0;
+    margin: 10px 0;
+    gap: 6px;
+  }
+
+  .signup-container-desktop .checkbox-group {
+    gap: 5px;
   }
 
   .signup-container-desktop .login-button-desktop {
-    margin-top: 14px;
-  }
-
-  .signup-container-desktop .login-footer-desktop {
-    margin-top: 14px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding: 10px 18px;
   }
 }
 
@@ -5167,13 +5289,59 @@ html.no-scroll {
   }
   
     .login-container-desktop {
-    padding: 20px 18px;
+    padding: 16px 15px;
     border-radius: 14px;
+    max-height: 70vh;
+  }
+
+  .login-container-desktop .login-header-desktop {
+    margin-bottom: 12px;
+  }
+
+  .login-container-desktop .input-group-desktop {
+    margin-bottom: 10px;
+  }
+
+  .login-container-desktop .input-label-desktop {
+    margin-bottom: 4px;
+  }
+
+  .login-container-desktop .login-input-desktop {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .login-container-desktop .spotify-login-button-desktop {
+    margin-bottom: 12px;
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .login-container-desktop .divider-desktop {
+    margin: 12px 0;
+  }
+
+  .login-container-desktop .login-form-desktop {
+    margin-bottom: 12px;
+  }
+
+  .login-container-desktop .login-button-desktop {
+    margin-bottom: 12px;
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .login-container-desktop .login-title-desktop {
+    font-size: 18px;
+  }
+
+  .login-container-desktop .login-subtitle-desktop {
+    font-size: 13px;
   }
 
   .signup-container-desktop {
-    max-height: 75vh;
-    padding: 16px 15px;
+    max-height: 68vh;
+    padding: 12px 15px;
   }
 
   .login-title-desktop {
@@ -5198,20 +5366,45 @@ html.no-scroll {
     height: 16px;
   }
 
-  .signup-container-desktop .input-group-desktop {
+  .signup-container-desktop .login-header-desktop {
     margin-bottom: 12px;
   }
 
+  .signup-container-desktop .input-group-desktop {
+    margin-bottom: 8px;
+  }
+
+  .signup-container-desktop .input-label-desktop {
+    margin-bottom: 4px;
+  }
+
+  .signup-container-desktop .login-input-desktop {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
   .signup-container-desktop .signup-checkboxes {
-    margin: 12px 0;
+    margin: 8px 0;
+    gap: 5px;
+  }
+
+  .signup-container-desktop .checkbox-group {
+    gap: 4px;
   }
 
   .signup-container-desktop .login-button-desktop {
-    margin-top: 12px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    padding: 8px 16px;
+    font-size: 14px;
   }
 
-  .signup-container-desktop .login-footer-desktop {
-    margin-top: 12px;
+  .signup-container-desktop .login-title-desktop {
+    font-size: 18px;
+  }
+
+  .signup-container-desktop .login-subtitle-desktop {
+    font-size: 13px;
   }
 }
 

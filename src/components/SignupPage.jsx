@@ -38,10 +38,7 @@ const SignupPage = () => {
     console.log('Signup attempt:', { fullName, email, password, agreeNewsletter })
   }
 
-  const handleSpotifySignup = () => {
-    // Spotify OAuth logic will be implemented later
-    console.log('Spotify signup clicked')
-  }
+
 
   return (
     <div className="desktop-login-page">
@@ -87,16 +84,7 @@ const SignupPage = () => {
               </p>
             </div>
 
-            <button onClick={handleSpotifySignup} className="spotify-login-button-desktop">
-              <div className="spotify-button-content">
-                <img src="/src/assets/spotify.jpg" alt="Spotify" className="spotify-icon-desktop" />
-                <span>Spotify ile Kayıt Ol</span>
-              </div>
-            </button>
 
-            <div className="divider-desktop">
-              <span className="divider-text-desktop">veya email ile kayıt ol</span>
-            </div>
 
             <form className="login-form-desktop" onSubmit={handleSignup}>
               <div className="input-group-desktop">
@@ -186,12 +174,7 @@ const SignupPage = () => {
               </button>
             </form>
 
-            <div className="login-footer-desktop">
-              <div className="signup-section-desktop">
-                <span className="signup-text-desktop">Zaten hesabın var mı?</span>
-                <a href="#login" className="signup-link-desktop">Giriş Yap</a>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>

@@ -676,10 +676,10 @@ html {
 .song-content {
   flex: 1;
   padding: 20px;
-  max-width: 1200px;
+  padding-left: 360px;
+  padding-right: 440px;
   margin: 0 auto;
   width: 100%;
-  margin-right: 440px; /* Chat için alan bırakır */
 }
 
 /* A) Enhanced Song Header */
@@ -695,6 +695,8 @@ html {
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
   position: relative;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .song-header::before {
@@ -802,23 +804,30 @@ html {
 
 .song-respect-info {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 16px;
   margin-bottom: 0;
+  flex-wrap: wrap;
 }
 
 .total-respect-badge {
   background: linear-gradient(135deg, #FEB822 0%, #f5980d 100%);
   color: #272c30;
-  padding: 12px 20px;
-  border-radius: 16px;
+  padding: 8px 16px;
+  border-radius: 12px;
   font-size: 14px;
   font-weight: 700;
   box-shadow: 
     0 4px 12px rgba(254, 184, 34, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
   animation: respectBadgeGlow 3s ease-in-out infinite;
-  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  min-width: 120px;
+  transform: translateY(-10px);
 }
 
 @keyframes respectBadgeGlow {
@@ -839,7 +848,7 @@ html {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: stretch;
 }
 
 .play-spotify-button {
@@ -855,7 +864,10 @@ html {
   box-shadow: 0 4px 15px rgba(27, 215, 95, 0.3);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  height: 48px;
+  min-width: 140px;
 }
 
 .play-spotify-button:hover {
@@ -874,11 +886,25 @@ html {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(254, 184, 34, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  min-width: 140px;
 }
 
 .quick-respect-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(254, 184, 34, 0.4);
+}
+
+/* Song Page Top Respecters - Fixed Sol Üst Köşe */
+.song-page .top-respecters-fixed {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 300px;
+  z-index: 40;
 }
 
 /* Song Page Main Grid Layout */
@@ -887,25 +913,44 @@ html {
   grid-template-columns: 1fr 400px;
   gap: 30px;
   margin-bottom: 30px;
+  justify-content: center;
 }
 
 .song-left-column {
   display: flex;
   flex-direction: column;
   gap: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .song-right-column {
   display: flex;
   flex-direction: column;
   gap: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* B) Respect Gönder Section */
 .send-respect-section {
   background: linear-gradient(135deg, #FEB822 0%, #f5980d 100%);
   border-radius: 16px;
-  padding: 20px;
+  padding: 16px;
   box-shadow: 0 8px 25px rgba(254, 184, 34, 0.3);
   color: #272c30;
   position: relative;
@@ -950,8 +995,8 @@ html {
 }
 
 .respect-amount-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 12px;
   margin-bottom: 20px;
   position: relative;
@@ -978,10 +1023,68 @@ html {
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
+/* Hover effects for specific buttons */
+.respect-amount-button:nth-child(1):hover {
+  transform: scale(0.9) translateY(-2px);
+}
+
+.respect-amount-button:nth-child(2):hover {
+  transform: scale(0.95) translateY(-2px);
+}
+
+.respect-amount-button:nth-child(3):hover {
+  transform: scale(1) translateY(-2px);
+}
+
+.respect-amount-button:nth-child(4):hover {
+  transform: scale(1.05) translateY(-2px);
+}
+
+.respect-amount-button:nth-child(5):hover {
+  transform: scale(1.15) translateY(-2px);
+  background: linear-gradient(135deg, rgba(254, 184, 34, 0.6) 0%, rgba(245, 152, 13, 0.6) 100%);
+  box-shadow: 0 6px 25px rgba(254, 184, 34, 0.5);
+}
+
 .respect-amount-button.selected {
   background: rgba(255, 255, 255, 0.4);
   border-color: rgba(255, 255, 255, 0.6);
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Gradual size and opacity increase */
+.respect-amount-button:nth-child(1) {
+  opacity: 0.5;
+  transform: scale(0.85);
+  font-size: 14px;
+}
+
+.respect-amount-button:nth-child(2) {
+  opacity: 0.65;
+  transform: scale(0.9);
+  font-size: 15px;
+}
+
+.respect-amount-button:nth-child(3) {
+  opacity: 0.8;
+  transform: scale(0.95);
+  font-size: 16px;
+}
+
+.respect-amount-button:nth-child(4) {
+  opacity: 0.9;
+  transform: scale(1);
+  font-size: 17px;
+}
+
+.respect-amount-button:nth-child(5) {
+  opacity: 1;
+  transform: scale(1.1);
+  font-size: 18px;
+  font-weight: 700;
+  background: linear-gradient(135deg, rgba(254, 184, 34, 0.4) 0%, rgba(245, 152, 13, 0.4) 100%);
+  border: 2px solid rgba(254, 184, 34, 0.6);
+  box-shadow: 0 4px 20px rgba(254, 184, 34, 0.3);
 }
 
 .send-respect-btn {
@@ -1240,30 +1343,193 @@ html {
   margin-left: 8px;
 }
 
+/* Recent Respects Horizontal Layout */
+.recent-respects-horizontal {
+  width: 100%;
+  background: linear-gradient(135deg, #f8f4e6 0%, #f5ebb0 100%);
+  border: 2px solid rgba(117, 90, 61, 0.3);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 20px 0;
+  box-shadow: 0 4px 16px rgba(117, 90, 61, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.recent-respects-horizontal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #755a3d, #9d7b5a, #755a3d);
+  border-radius: 16px 16px 0 0;
+  animation: recentRespectGlow 2.5s ease-in-out infinite;
+}
+
+.recent-respects-grid-horizontal {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 8px 0;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(117, 90, 61, 0.3) transparent;
+}
+
+.recent-respects-grid-horizontal::-webkit-scrollbar {
+  height: 8px;
+}
+
+.recent-respects-grid-horizontal::-webkit-scrollbar-track {
+  background: rgba(117, 90, 61, 0.1);
+  border-radius: 4px;
+}
+
+.recent-respects-grid-horizontal::-webkit-scrollbar-thumb {
+  background: rgba(117, 90, 61, 0.4);
+  border-radius: 4px;
+}
+
+.recent-respects-grid-horizontal::-webkit-scrollbar-thumb:hover {
+  background: rgba(117, 90, 61, 0.6);
+}
+
+.recent-respect-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  border: 1px solid rgba(117, 90, 61, 0.2);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  min-width: 120px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.recent-respect-card:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(117, 90, 61, 0.3);
+  border-color: rgba(117, 90, 61, 0.4);
+}
+
+.recent-respect-card .recent-respect-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid rgba(117, 90, 61, 0.3);
+  transition: all 0.3s ease;
+}
+
+.recent-respect-card:hover .recent-respect-avatar {
+  transform: scale(1.1);
+  border-color: rgba(117, 90, 61, 0.5);
+}
+
+.recent-respect-card .recent-respect-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.recent-respect-card .recent-respect-user {
+  font-size: 13px;
+  font-weight: 600;
+  color: #272c30;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recent-respect-card .recent-respect-amount {
+  font-size: 12px;
+  color: #755a3d;
+  font-weight: 600;
+  margin: 0;
+  background: rgba(117, 90, 61, 0.1);
+  padding: 3px 6px;
+  border-radius: 6px;
+}
+
+.recent-respect-card .recent-respect-time {
+  font-size: 10px;
+  color: #999;
+  margin: 0;
+}
+
+/* Recent Respects Horizontal Section Header */
+.recent-respects-horizontal .section-header {
+  text-align: center;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.recent-respects-horizontal .section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #272c30;
+  margin: 0 0 4px 0;
+}
+
+.recent-respects-horizontal .section-subtitle {
+  font-size: 13px;
+  color: #755a3d;
+  margin: 0;
+  opacity: 0.8;
+}
+
 /* E) Song Page Chat - Same as Artist Chat */
 .song-chat-fixed {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 0;
+  right: 0;
   width: 400px;
-  height: 600px;
   background: #ffffff;
   border: 2px solid #FEB822;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
   z-index: 50;
-  box-shadow: 0 8px 32px rgba(39, 44, 48, 0.15);
+  box-shadow: 0 12px 40px rgba(39, 44, 48, 0.25), 0 6px 20px rgba(254, 184, 34, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.song-chat-fixed.chat-open {
+  max-height: 600px;
+}
+
+.song-chat-fixed.chat-collapsed {
+  max-height: 60px;
 }
 
 .song-chat-fixed .chat-header {
-  background: #FEB822;
+  background: #ffffff;
   padding: 16px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   border-bottom: 1px solid rgba(254, 184, 34, 0.3);
   border-radius: 14px 14px 0 0;
+  position: relative;
+}
+
+.song-chat-fixed .chat-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  right: 16px;
 }
 
 .song-chat-fixed .chat-title {
@@ -1443,7 +1709,7 @@ html {
   background: linear-gradient(135deg, #f8f4e6 0%, #f5ebb0 100%);
   border: 2px solid rgba(117, 90, 61, 0.3);
   border-radius: 16px;
-  padding: 20px;
+  padding: 16px;
   box-shadow: 0 6px 20px rgba(117, 90, 61, 0.15);
   position: relative;
   overflow: hidden;
@@ -1556,14 +1822,20 @@ html {
 /* 1200px altı */
 @media (max-width: 1200px) {
   .song-content {
-    max-width: 960px;
     padding: 16px;
-    margin-right: 380px; /* Chat boyutuna uygun */
+    padding-left: 16px;
+    padding-right: 16px;
   }
   
   .song-main-grid {
     grid-template-columns: 1fr 350px;
     gap: 25px;
+  }
+
+  .song-page .top-respecters-fixed {
+    position: static;
+    width: 100%;
+    margin-bottom: 20px;
   }
   
   .song-album-cover {
@@ -1586,9 +1858,9 @@ html {
 /* 992px altı */
 @media (max-width: 992px) {
   .song-content {
-    max-width: 100%;
     padding: 16px;
-    margin-right: 0; /* Chat relative olduğu için margin kaldırılır */
+    padding-left: 16px;
+    padding-right: 16px;
   }
   
   .song-main-grid {
@@ -1642,7 +1914,8 @@ html {
 @media (max-width: 768px) {
   .song-content {
     padding: 12px;
-    margin-right: 0; /* Mobile'da margin yok */
+    padding-left: 12px;
+    padding-right: 12px;
   }
   
   .song-header {
@@ -1671,23 +1944,35 @@ html {
   }
   
   .song-respect-info {
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .song-respect-info {
     flex-direction: column;
     align-items: center;
     gap: 12px;
   }
   
-  .song-buttons {
+    .song-buttons {
     justify-content: center;
   }
-  
-  .send-respect-section {
+
+  .song-left-column {
     padding: 16px;
+    border-radius: 12px;
+    box-shadow: 
+      0 6px 24px rgba(0, 0, 0, 0.08),
+      0 3px 12px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .song-right-column {
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 
+      0 6px 24px rgba(0, 0, 0, 0.08),
+      0 3px 12px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .send-respect-section {
+    padding: 12px;
   }
   
   .respect-section-title {
@@ -1697,7 +1982,7 @@ html {
   .top-respecters-section,
   .recent-respects-section,
   .artist-other-songs {
-    padding: 16px;
+    padding: 12px;
   }
   
   .recent-respects-list {
@@ -1713,7 +1998,39 @@ html {
     width: 40px;
     height: 40px;
   }
-  
+
+  .recent-respects-horizontal {
+    margin: 16px 0;
+    padding: 12px;
+  }
+
+  .recent-respects-grid-horizontal {
+    gap: 10px;
+  }
+
+  .recent-respect-card {
+    min-width: 100px;
+    padding: 10px;
+  }
+
+    .recent-respect-card .recent-respect-avatar {
+    width: 38px;
+    height: 38px;
+  }
+
+  .recent-respects-horizontal .section-header {
+    margin-bottom: 10px;
+  }
+
+  .recent-respects-horizontal .section-title {
+    font-size: 16px;
+    margin: 0 0 3px 0;
+  }
+
+  .recent-respects-horizontal .section-subtitle {
+    font-size: 12px;
+  }
+    
   .section-title {
     font-size: 18px;
   }
@@ -1749,7 +2066,8 @@ html {
 @media (max-width: 480px) {
   .song-content {
     padding: 10px;
-    margin-right: 0; /* Mobile'da margin yok */
+    padding-left: 10px;
+    padding-right: 10px;
   }
   
   .song-header {
@@ -1773,6 +2091,8 @@ html {
   .total-respect-badge {
     padding: 10px 16px;
     font-size: 13px;
+    height: 40px;
+    min-width: 120px;
   }
   
   .song-respect-info {
@@ -1783,17 +2103,38 @@ html {
   
   .song-buttons {
     flex-direction: column;
+    align-items: stretch;
     gap: 8px;
   }
   
-  .play-spotify-button,
+    .play-spotify-button,
   .quick-respect-button {
     padding: 10px 16px;
     font-size: 13px;
+    height: 40px;
+    min-width: 120px;
   }
-  
-  .send-respect-section {
+
+  .song-left-column {
     padding: 12px;
+    border-radius: 10px;
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.06),
+      0 2px 8px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .song-right-column {
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.06),
+      0 2px 8px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .send-respect-section {
+    padding: 10px;
   }
   
   .respect-section-title {
@@ -1818,7 +2159,7 @@ html {
   .top-respecters-section,
   .recent-respects-section,
   .artist-other-songs {
-    padding: 12px;
+    padding: 10px;
   }
   
   .section-title {
@@ -1872,7 +2213,53 @@ html {
   .recent-respect-time {
     font-size: 10px;
   }
-  
+
+  .recent-respects-horizontal {
+    margin: 12px 0;
+    padding: 10px;
+  }
+
+  .recent-respects-grid-horizontal {
+    gap: 8px;
+  }
+
+  .recent-respect-card {
+    min-width: 85px;
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .recent-respect-card .recent-respect-avatar {
+    width: 35px;
+    height: 35px;
+  }
+
+  .recent-respect-card .recent-respect-user {
+    font-size: 11px;
+  }
+
+  .recent-respect-card .recent-respect-amount {
+    font-size: 10px;
+    padding: 2px 5px;
+  }
+
+    .recent-respect-card .recent-respect-time {
+    font-size: 9px;
+  }
+
+  .recent-respects-horizontal .section-header {
+    margin-bottom: 8px;
+  }
+
+  .recent-respects-horizontal .section-title {
+    font-size: 14px;
+    margin: 0 0 2px 0;
+  }
+
+  .recent-respects-horizontal .section-subtitle {
+    font-size: 11px;
+  }
+    
   .artist-song-card {
     padding: 8px;
     gap: 8px;

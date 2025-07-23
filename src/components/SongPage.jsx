@@ -2,8 +2,13 @@ import React, { useState } from 'react'
 
 const SongPage = () => {
   const [selectedAmount, setSelectedAmount] = useState(null)
+  const [isChatOpen, setIsChatOpen] = useState(true)
 
-  const respectAmounts = [50, 100, 250, 500]
+  const toggleChat = () => {
+    setIsChatOpen(!isChatOpen)
+  }
+
+  const respectAmounts = [50, 100, 250, 500, 1000]
 
   const topRespecters = [
     { id: 1, rank: 1, name: "MusicLover_23", avatar: "/src/assets/user/Image.png", total: "2,340 Respect" },
@@ -74,31 +79,38 @@ const SongPage = () => {
           </div>
         </div>
 
+        {/* Top Respecters - Fixed Sol Üst Köşe */}
+        <div className="top-respecters-fixed">
+          <section className="top-respecters-section">
+            <div className="section-header">
+              <h3 className="section-title">En Çok Respect Gönderenler</h3>
+              <span className="section-subtitle">Bu şarkıya en çok destek verenler</span>
+            </div>
+            
+            <div className="top-respecters-list">
+              {topRespecters.map((respecter) => (
+                <div key={respecter.id} className="respecter-item">
+                  <div className="rank-badge">
+                    <span className="rank-number">#{respecter.rank}</span>
+                  </div>
+                  
+                  <img src={respecter.avatar} alt={respecter.name} className="respecter-avatar" />
+                  
+                  <div className="respecter-info">
+                    <h5 className="respecter-username">{respecter.name}</h5>
+                    <p className="respecter-total">{respecter.total}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+
         {/* Main Grid Layout */}
         <div className="song-main-grid">
           
           {/* Left Column */}
           <div className="song-left-column">
-            
-            {/* C) En Çok Respect Gönderenler */}
-            <div className="top-respecters-section">
-              <div className="section-header">
-                <h3 className="section-title">En Çok Respect Gönderenler</h3>
-                <p className="section-subtitle">Bu şarkıya en çok destek verenler</p>
-              </div>
-              <div className="respecters-list">
-                {topRespecters.map(respecter => (
-                  <div key={respecter.id} className="respecter-item">
-                    <div className="respecter-rank">{respecter.rank}</div>
-                    <img src={respecter.avatar} alt={respecter.name} className="respecter-avatar" />
-                    <div className="respecter-info">
-                      <div className="respecter-name">{respecter.name}</div>
-                      <div className="respecter-total">{respecter.total}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
 
             {/* F) Sanatçıdan Diğer Şarkılar */}
             <div className="artist-other-songs">
@@ -147,69 +159,74 @@ const SongPage = () => {
               </button>
             </div>
 
-            {/* D) Son Respectler */}
-            <div className="recent-respects-section">
-              <div className="section-header">
-                <h3 className="section-title">Son Respectler</h3>
-                <p className="section-subtitle">En son gönderilen destekler</p>
-              </div>
-              <div className="recent-respects-list">
-                {recentRespects.map(respect => (
-                  <div key={respect.id} className="recent-respect-item">
-                    <img src={respect.avatar} alt={respect.user} className="recent-respect-avatar" />
-                    <div className="recent-respect-info">
-                      <div className="recent-respect-user">{respect.user}</div>
-                      <div className="recent-respect-amount">{respect.amount}</div>
-                    </div>
-                    <div className="recent-respect-time">{respect.time}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
           </div>
         </div>
 
-        {/* E) Fixed Chat - Same as Artist Chat */}
-        <div className="song-chat-fixed">
-          <div className="chat-header">
-            <h3 className="chat-title">Şarkı Sohbeti</h3>
-            <div className="chat-info">
-              <span className="online-count">127 online</span>
-            </div>
+        {/* D) Son Respectler - Full Width Horizontal */}
+        <div className="recent-respects-horizontal">
+          <div className="section-header">
+            <h3 className="section-title">Son Respectler</h3>
+            <p className="section-subtitle">En son gönderilen destekler</p>
           </div>
-
-          <div className="chat-messages">
-            {chatMessages.map(message => (
-              <div 
-                key={message.id} 
-                className={`song-chat-message ${message.isArtist ? 'song-artist-message' : 'song-user-message'} ${message.hasRespectPriority ? 'song-priority-message' : ''}`}
-              >
-                <div className="song-message-content">
-                  <div className="song-message-header">
-                    <img src={message.avatar} alt={message.username} className="song-message-avatar" />
-                    <span className="song-message-username">{message.username}</span>
-                    {message.hasRespectPriority && <span className="song-priority-badge">💎</span>}
-                  </div>
-                  <p className="song-message-text">{message.message}</p>
-                  <span className="song-message-time">{message.time}</span>
+          <div className="recent-respects-grid-horizontal">
+            {recentRespects.map(respect => (
+              <div key={respect.id} className="recent-respect-card">
+                <img src={respect.avatar} alt={respect.user} className="recent-respect-avatar" />
+                <div className="recent-respect-info">
+                  <div className="recent-respect-user">{respect.user}</div>
+                  <div className="recent-respect-amount">{respect.amount}</div>
+                  <div className="recent-respect-time">{respect.time}</div>
                 </div>
               </div>
             ))}
           </div>
+        </div>
 
-          <div className="song-chat-requirement-notice">
-            <p>💡 Sohbete katılmak için bu şarkıya en az 20 respect göndermiş olmalısınız.</p>
+        {/* E) Fixed Chat - Same as Artist Chat */}
+        <div className={`song-chat-fixed ${isChatOpen ? 'chat-open' : 'chat-collapsed'}`}>
+          <div className="chat-header">
+            <h3 className="chat-title">Şarkı Sohbeti</h3>
+            <div className="chat-info">
+              <span className="online-count">127 online</span>
+              <button className="chat-toggle-btn" onClick={toggleChat}>
+                {isChatOpen ? '↓' : '↑'}
+              </button>
+            </div>
           </div>
 
-          <div className="chat-input-area">
-            <input 
-              type="text" 
-              placeholder="Mesajınızı yazın..." 
-              className="chat-input"
-              disabled
-            />
-            <button className="send-button" disabled>Gönder</button>
+          <div className={`chat-content ${isChatOpen ? 'chat-content-visible' : 'chat-content-hidden'}`}>
+            <div className="chat-messages">
+              {chatMessages.map(message => (
+                <div 
+                  key={message.id} 
+                  className={`song-chat-message ${message.isArtist ? 'song-artist-message' : 'song-user-message'} ${message.hasRespectPriority ? 'song-priority-message' : ''}`}
+                >
+                  <div className="song-message-content">
+                    <div className="song-message-header">
+                      <img src={message.avatar} alt={message.username} className="song-message-avatar" />
+                      <span className="song-message-username">{message.username}</span>
+                      {message.hasRespectPriority && <span className="song-priority-badge">💎</span>}
+                    </div>
+                    <p className="song-message-text">{message.message}</p>
+                    <span className="song-message-time">{message.time}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="song-chat-requirement-notice">
+              <p>💡 Sohbete katılmak için bu şarkıya en az 20 respect göndermiş olmalısınız.</p>
+            </div>
+
+            <div className="chat-input-area">
+              <input 
+                type="text" 
+                placeholder="Mesajınızı yazın..." 
+                className="chat-input"
+                disabled
+              />
+              <button className="send-button" disabled>Gönder</button>
+            </div>
           </div>
         </div>
 
